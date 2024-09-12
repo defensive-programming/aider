@@ -1,0 +1,45 @@
+# Security
+.env.*
+!.env.*.example
+!.env.*.defaults
+
+# Bundle
+release
+dist
+build
+.dist
+.dev
+node_modules/
+*.tgz
+npm/
+
+# IDE
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+.eslint_cache
+tsconfig.tsbuildinfo
+.next
+.eslintcache
+.npm
+*.log*
+logs
+.grunt
+.cache
+
+# OS
+.DS_Store
+
+# Custom
+.husky
+.github

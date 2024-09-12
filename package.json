@@ -1,0 +1,21 @@
+{
+  "description": "No-brainer daily development utils",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https:git@github.com:defensive-programming/aider.git"
+  },
+  "keywords": [
+    "operator",
+    "functional",
+    "ramda",
+    "lodash",
+    "ts-toolkit"
+  ],
+  "author": "Tim Lee",
+  "license": "Apache-2.0",
+  "scripts": {
+    "qa": "node playground.js",
+    "publish:npm": "npm publish --access public npm/"
+  }
+}
