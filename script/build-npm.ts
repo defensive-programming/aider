@@ -3,15 +3,22 @@ import denoJSON from 'denoJSON' with { type: "json" };
 import packageJSON from 'packageJSON' with { type: "json" };
 import * as U from '@es-toolkit/es-toolkit';
 import { exists } from "@std/fs";
-import * as cst from "@/constant.ts";
+import * as cst from "./../constant.ts";
 
 const addMoreEntriesIntoNpmIgnore = () =>
 { // DNT does define some entries in .npmignore, but it's not enough
   const $p = `${cst.folder.dist}/${cst.file.npmignore}`;
-  return exists($p).then(_ => Deno.readTextFileSync($p)).then(c => Deno.writeTextFileSync($p, (c += "package-lock.json").trim()))
+  return exists($p)
+    .then(() => Deno.readTextFileSync($p))
+    .then((c: string) => Deno.writeTextFileSync($p, (c += "package-lock.json").trim()))
 }
 
-const removeNodeModulesFolderIfExists = () => exists("node_modules").then(_ => Deno.remove("node_modules", { recursive: true })).catch(_ => {})
+const removeNodeModulesFolderIfExists = () =>
+(
+  exists("node_modules")
+  .then(() => Deno.remove("node_modules", { recursive: true }))
+  .catch(() => console.error('Fail to remove node_modules'))
+);
 
 await dnt.emptyDir(cst.folder.dist);
 
@@ -54,6 +61,6 @@ await dnt.build({
      * (https://github.com/denoland/deno/issues/17930)
      * and there's an option that can force that to be generated, which has been used in deno.json: `nodeModulesDir`
      */
-    return addMoreEntriesIntoNpmIgnore().then(_ => removeNodeModulesFolderIfExists())
+    return addMoreEntriesIntoNpmIgnore().then(() => removeNodeModulesFolderIfExists())
   },
 });

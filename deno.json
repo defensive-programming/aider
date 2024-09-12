@@ -10,7 +10,6 @@
     "launch": "deno task question && deno task release && deno task build && deno task publish",
     "qa:development": "deno run -A --watch --check src/index.ts",
     "type-check": "deno check src/index.ts",
-    "c:p": "deno cache --frozen=false playground.ts",
     "c:m": "deno cache --frozen=false src/index.ts",
     "d": "deno task qa:development",
     "b": "deno task build",
@@ -34,8 +33,7 @@
     "@deno/shim-deno": "npm:@deno/shim-deno@^0.19.2",
     "denoJSON": "./deno.json",
     "packageJSON": "./package.json",
-    "~/": "./src/",
-    "@/": "./"
+    "~/": "./src/"
   },
   "nodeModulesDir": false,
   "lock": {
