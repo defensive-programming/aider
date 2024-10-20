@@ -1,6 +1,6 @@
 {
   "name": "@defensive-programming/aider",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "exports": "./src/index.ts",
   "tasks": {
     "publish": "deno task publish:npm",
